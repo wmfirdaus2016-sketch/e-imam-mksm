@@ -1,83 +1,619 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ms">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>e-IMAM MKSM</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f4f7f5;color:#17231d}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at top,#dff3e7,#f7faf8 55%)}.login-card{width:min(460px,100%);background:#fff;border:1px solid #dce8e0;border-radius:24px;padding:36px;box-shadow:0 24px 70px #163b2a18;text-align:center}.brand-mark{width:66px;height:66px;border-radius:20px;background:#0f6b45;color:#fff;display:grid;place-items:center;font-size:30px;margin:0 auto 16px}.small-mark{width:42px;height:42px;border-radius:13px;font-size:20px;margin:0}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;color:#168052}.login-card h1{font:800 32px "Plus Jakarta Sans",sans-serif;margin:5px 0}.login-card p{margin:0 0 8px;font-weight:600}.muted{color:#718079}.small{font-size:12px;line-height:1.6}.stack{display:grid;gap:14px;text-align:left;margin-top:24px}label{font-size:13px;font-weight:700;color:#435149}input,select,textarea{width:100%;margin-top:7px;padding:11px 12px;border:1px solid #cfddd5;border-radius:10px;background:#fff;outline:none}input:focus,select:focus,textarea:focus{border-color:#299b69;box-shadow:0 0 0 3px #299b6915}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800}.btn.primary{background:#0f6b45;color:#fff}.btn.secondary{background:#eaf4ee;color:#0f6b45}.btn.danger{background:#fff0ef;color:#a3342b}.wide{width:100%}.form-msg{min-height:18px;font-size:12px;color:#b33b31}.app{display:flex;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:250px;background:#0b2d20;color:#dbeee4;padding:20px 14px;display:flex;flex-direction:column;z-index:10}.side-brand{display:flex;gap:10px;align-items:center;padding:4px 8px 22px}.side-brand strong{display:block;font-family:"Plus Jakarta Sans";font-size:14px}.side-brand span{display:block;font-size:10px;color:#8fb7a4;margin-top:3px;line-height:1.35}.nav-item{width:100%;border:0;background:transparent;color:#bdd6c9;padding:11px 12px;border-radius:10px;text-align:left;margin:2px 0;font-weight:600;display:flex;gap:10px;align-items:center}.nav-item:hover,.nav-item.active{background:#164b36;color:#fff}.nav-item.danger{margin-top:6px;color:#ffb9b3}.side-bottom{margin-top:auto}.role-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#173f30;color:#9ee2bf;font-size:10px;font-weight:800;margin:0 0 8px 10px}.main{margin-left:250px;width:calc(100% - 250px)}.topbar{height:92px;background:#fff;border-bottom:1px solid #dfe9e3;padding:20px 30px;display:flex;align-items:center;justify-content:space-between}.topbar h2{margin:3px 0 0;font:800 24px "Plus Jakarta Sans"}.top-user{display:flex;align-items:center;gap:16px;font-size:12px;color:#66756d}.user-pill{display:flex;gap:7px;align-items:center;padding:8px 11px;background:#f3f7f4;border-radius:999px}.dot{width:8px;height:8px;background:#2eae70;border-radius:50%}.content{padding:28px;max-width:1450px;margin:auto}.page-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:18px}.page-head h3{margin:0;font:800 20px "Plus Jakarta Sans"}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px}.stat{background:#fff;border:1px solid #dfe9e3;border-radius:16px;padding:18px}.stat .label{font-size:11px;color:#718079;font-weight:700}.stat .num{font:800 28px "Plus Jakarta Sans";margin-top:7px}.grid-2{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{background:#fff;border:1px solid #dfe9e3;border-radius:16px;padding:18px}.panel h3{font:800 15px "Plus Jakarta Sans";margin:0 0 14px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:12px}.table th,.table td{padding:11px 10px;border-bottom:1px solid #edf2ef;text-align:left;white-space:nowrap}.table th{color:#718079;font-size:10px;text-transform:uppercase;letter-spacing:.05em}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#eaf4ee;color:#14704a;font-size:10px;font-weight:800}.badge.gray{background:#eef1ef;color:#66736c}.actions{display:flex;gap:6px}.mini{padding:7px 9px;border-radius:8px;border:0;background:#eef5f0;color:#155e41;font-size:11px;font-weight:700}.mini.del{background:#fff0ef;color:#a3342b}.empty{padding:28px;text-align:center;color:#7b8881;font-size:13px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.cal-head{font-size:10px;text-transform:uppercase;color:#718079;font-weight:800;padding:6px}.cal-day{min-height:108px;background:#fff;border:1px solid #e1e9e4;border-radius:10px;padding:8px}.cal-day.today{border:2px solid #2b9b6a}.cal-date{font-size:11px;font-weight:800;margin-bottom:6px}.cal-event{font-size:9px;background:#edf7f1;color:#116342;border-radius:5px;padding:4px;margin-top:3px;overflow:hidden;text-overflow:ellipsis}.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center}.modal-backdrop{position:absolute;inset:0;background:#09201688}.modal-card{position:relative;width:min(620px,calc(100% - 30px));max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:22px;box-shadow:0 30px 80px #0003}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h3{margin:0;font:800 18px "Plus Jakarta Sans"}.icon-btn{border:0;background:#edf2ef;width:32px;height:32px;border-radius:50%;font-size:20px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-grid .full{grid-column:1/-1}.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.toast{position:fixed;right:20px;bottom:20px;background:#123b2b;color:#fff;padding:12px 16px;border-radius:10px;opacity:0;transform:translateY(10px);transition:.2s;z-index:100;font-size:12px}.toast.show{opacity:1;transform:none}.hero{background:linear-gradient(135deg,#0f6b45,#1c8d60);color:#fff;border-radius:18px;padding:24px;margin-bottom:18px}.hero h3{font:800 24px "Plus Jakarta Sans";margin:0 0 5px}.hero p{margin:0;color:#d9f1e5;font-size:12px}.quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.quick .btn{background:#ffffff1c;color:#fff;border:1px solid #ffffff33}@media(max-width:950px){.sidebar{width:78px}.side-brand div:not(.brand-mark),.nav-item span,.role-badge{display:none}.side-brand{justify-content:center}.nav-item{justify-content:center}.main{margin-left:78px;width:calc(100% - 78px)}.stats{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}}@media(max-width:650px){.topbar{padding:15px;height:auto;align-items:flex-start}.top-user{display:none}.content{padding:15px}.stats{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.calendar{gap:3px}.cal-day{min-height:80px;padding:5px}.cal-event{font-size:8px}.hero{padding:18px}.page-head{align-items:flex-start;flex-direction:column}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>E-IMAM MKSM</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f7f5;
+  color:#173b2d
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.login{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
+.login-box{
+  background:white;
+  width:100%;
+  max-width:430px;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 8px 30px #0002;
+  text-align:center
+}
+.logo{
+  width:90px;
+  height:90px;
+  margin:auto;
+  border-radius:50%;
+  background:#e5efe9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px
+}
+.login-box h1{margin:18px 0 5px}
+.login-box p{color:#667}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin:6px 0 12px;
+  border:1px solid #ccd8d1;
+  border-radius:9px
+}
+
+.btn{
+  border:0;
+  padding:11px 16px;
+  border-radius:9px;
+  background:#146c43;
+  color:white
+}
+.btn.secondary{background:#64748b}
+.btn.danger{background:#b42318}
+
+#app{display:none}
+
+.header{
+  background:#146c43;
+  color:white;
+  padding:16px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.brand{
+  font-size:20px;
+  font-weight:bold
+}
+.header small{opacity:.85}
+
+.layout{display:flex;min-height:calc(100vh - 70px)}
+
+.sidebar{
+  width:230px;
+  background:#fff;
+  border-right:1px solid #ddd;
+  padding:15px
+}
+.nav{
+  width:100%;
+  text-align:left;
+  background:white;
+  border:0;
+  padding:13px;
+  margin-bottom:5px;
+  border-radius:8px;
+  color:#173b2d
+}
+.nav:hover,.nav.active{
+  background:#e5f2eb;
+  color:#146c43;
+  font-weight:bold
+}
+
+.content{
+  flex:1;
+  padding:25px;
+  max-width:1300px
+}
+.page{display:none}
+.page.active{display:block}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  margin:20px 0
+}
+.card{
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 2px 10px #0001
+}
+.card h3{margin:0;color:#64748b;font-size:14px}
+.number{font-size:32px;font-weight:bold;margin-top:8px}
+
+.panel{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px;
+  box-shadow:0 2px 10px #0001
+}
+
+table{
+  width:100%;
+  border-collapse:collapse
+}
+th,td{
+  padding:11px;
+  border-bottom:1px solid #e5e7eb;
+  text-align:left
+}
+th{background:#f1f5f3}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#e7f4ec;
+  color:#146c43;
+  font-size:12px
+}
+
+@media(max-width:750px){
+  .sidebar{width:180px}
+  .content{padding:15px}
+}
 </style>
 </head>
+
 <body>
-<div id="loginView" class="login-screen"><div class="login-card">
-<div class="brand-mark">🕌</div><div class="eyebrow">SISTEM PENGURUSAN IMAM</div>
-<h1>e-IMAM MKSM</h1><p>Masjid Kampung Sungai Merab Luar</p>
-<div class="muted small">Jalan Rangkaya Sultan, Kampung Sungai Merab Luar, 43000 Kajang, Selangor</div>
-<form id="loginForm" class="stack"><label>Email<input id="loginEmail" type="email" required placeholder="Email pengguna"></label>
-<label>Password<input id="loginPassword" type="password" required placeholder="Password"></label>
-<button class="btn primary wide">Log Masuk</button><div id="loginMsg" class="form-msg"></div></form>
-</div></div>
-<div id="appView" class="app hidden">
-<aside class="sidebar"><div class="side-brand"><div class="brand-mark small-mark">🕌</div><div><strong>e-IMAM MKSM</strong><span>Masjid Kampung Sungai Merab Luar</span></div></div>
-<nav id="nav">
-<button data-page="dashboard" class="nav-item active">⌂ <span>Dashboard</span></button>
-<button data-page="imams" class="nav-item">👤 <span>Imam</span></button>
-<button data-page="schedules" class="nav-item">📅 <span>Jadual Bertugas</span></button>
-<button data-page="calendar" class="nav-item">🗓 <span>Kalendar</span></button>
-<button data-page="replacements" class="nav-item">🔄 <span>Penggantian</span></button>
-<button data-page="unavailability" class="nav-item">🚫 <span>Ketidakhadiran</span></button>
-<button data-page="attendance" class="nav-item">✓ <span>Kehadiran</span></button>
-<button data-page="reports" class="nav-item">▤ <span>Laporan</span></button>
-</nav><div class="side-bottom"><div id="roleBadge" class="role-badge">IMAM</div><button id="logoutBtn" class="nav-item danger">↪ <span>Log Keluar</span></button></div></aside>
-<main class="main"><header class="topbar"><div><div class="eyebrow">MASJID KAMPUNG SUNGAI MERAB LUAR</div><h2 id="pageTitle">Dashboard</h2></div>
-<div class="top-user"><div id="todayLabel"></div><div class="user-pill"><span class="dot"></span><span id="userEmail"></span></div></div></header>
-<section id="content" class="content"></section></main></div>
-<div id="modal" class="modal hidden"><div class="modal-backdrop" data-close></div><div class="modal-card"><div class="modal-head"><h3 id="modalTitle"></h3><button class="icon-btn" data-close>×</button></div><div id="modalBody"></div></div></div>
-<div id="toast" class="toast"></div><script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-const SUPABASE_URL = "https://jskzueizleoeeardsdhm.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_PP6S-hOM4NeeKG3RaQVO4w_MPowgh1B"; 
 
-const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const supabase=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-let session=null,profile=null,imams=[],prayers=[],schedules=[],replacements=[],unavailability=[],attendance=[],page="dashboard",month=new Date();
-const today=()=>new Date().toISOString().slice(0,10), esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-const dateFmt=d=>new Intl.DateTimeFormat("ms-MY",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(d+"T00:00:00"));
-const imamName=id=>imams.find(x=>x.id===id)?.full_name||"-", prayerName=id=>prayers.find(x=>x.id===id)?.name||"-";
-const isAdmin=()=>profile?.role==="ADMIN";
-function toast(x){let t=$("#toast");t.textContent=x;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2500)}
-function closeModal(){$("#modal").classList.add("hidden")}
-function openModal(t,b){$("#modalTitle").textContent=t;$("#modalBody").innerHTML=b;$("#modal").classList.remove("hidden")}
-function opts(a,v="",label="full_name"){return a.map(x=>`<option value="${x.id}" ${x.id===v?"selected":""}>${esc(x[label]||x.name)}</option>`).join("")}
-$("#modal").onclick=e=>{if(e.target.dataset.close!==undefined)closeModal()};
-$("#logoutBtn").onclick=async()=>{await supabase.auth.signOut();location.reload()};
-$("#nav").onclick=e=>{let b=e.target.closest("[data-page]");if(!b)return;page=b.dataset.page;$$(".nav-item").forEach(x=>x.classList.toggle("active",x===b));render()};
-$("#loginForm").onsubmit=async e=>{e.preventDefault();let r=await supabase.auth.signInWithPassword({email:$("#loginEmail").value,password:$("#loginPassword").value});if(r.error)$("#loginMsg").textContent=r.error.message;else boot()};
-async function load(){let [a,b,c,d,e,f,p]=await Promise.all([
-supabase.from("imams").select("*").order("full_name"),supabase.from("prayers").select("*").order("sort_order"),
-supabase.from("duty_schedules").select("*").order("duty_date",{ascending:false}),supabase.from("replacements").select("*").order("replacement_date",{ascending:false}),
-supabase.from("unavailability").select("*").order("start_date",{ascending:false}),supabase.from("attendance").select("*").order("recorded_at",{ascending:false}),
-supabase.from("profiles").select("*").eq("id",session.user.id).single()]);
-imams=a.data||[];prayers=b.data||[];schedules=c.data||[];replacements=d.data||[];unavailability=e.data||[];attendance=f.data||[];profile=p.data||profile}
-async function boot(){let r=await supabase.auth.getSession();session=r.data.session;if(!session){$("#loginView").classList.remove("hidden");$("#appView").classList.add("hidden");return}
-$("#loginView").classList.add("hidden");$("#appView").classList.remove("hidden");$("#userEmail").textContent=session.user.email;await load();$("#roleBadge").textContent=profile?.role||"IMAM";render()}
-function render(){let titles={dashboard:"Dashboard",imams:"Pengurusan Imam",schedules:"Jadual Bertugas",calendar:"Kalendar",replacements:"Penggantian Imam",unavailability:"Ketidakhadiran",attendance:"Kehadiran",reports:"Laporan"};$("#pageTitle").textContent=titles[page];$("#todayLabel").textContent=new Intl.DateTimeFormat("ms-MY",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(new Date());({dashboard:dash,imams:imamsPage,schedules:schedPage,calendar:calPage,replacements:repPage,unavailability:unavailPage,attendance:attPage,reports:reportPage}[page])()}
-function dash(){let t=today(),m=t.slice(0,7),ss=schedules.filter(x=>x.duty_date===t),ms=schedules.filter(x=>x.duty_date.startsWith(m));$("#content").innerHTML=`<div class="hero"><div class="eyebrow" style="color:#b9f0d3">SELAMAT DATANG</div><h3>e-IMAM MKSM</h3><p>Sistem Pengurusan Jadual & Rekod Bertugas Imam</p><div class="quick"><button class="btn" data-go="schedules">+ Tambah Jadual</button><button class="btn" data-go="imams">+ Tambah Imam</button><button class="btn" data-go="calendar">Lihat Kalendar</button></div></div><div class="stats"><div class="stat"><div class="label">IMAM AKTIF</div><div class="num">${imams.filter(x=>x.status==="AKTIF").length}</div></div><div class="stat"><div class="label">TUGAS HARI INI</div><div class="num">${ss.length}</div></div><div class="stat"><div class="label">TUGAS BULAN INI</div><div class="num">${ms.length}</div></div><div class="stat"><div class="label">PENGGANTIAN BULAN INI</div><div class="num">${replacements.filter(x=>x.replacement_date.startsWith(m)).length}</div></div></div><div class="grid-2"><div class="panel"><h3>Jadual Hari Ini</h3>${ss.length?`<div class="table-wrap"><table class="table"><tr><th>Solat</th><th>Imam</th><th>Status</th></tr>${ss.map(x=>`<tr><td>${esc(prayerName(x.prayer_id))}</td><td>${esc(imamName(x.imam_id))}</td><td><span class="badge">${esc(x.status)}</span></td></tr>`).join("")}</table></div>`:`<div class="empty">Tiada jadual hari ini.</div>`}</div><div class="panel"><h3>Penggantian Terkini</h3>${replacements.slice(0,5).map(x=>`<div style="padding:9px 0;border-bottom:1px solid #edf2ef;font-size:12px"><b>${esc(imamName(x.original_imam_id))}</b> → <b>${esc(imamName(x.replacement_imam_id))}</b><br><span class="muted">${dateFmt(x.replacement_date)} · ${esc(x.reason||"")}</span></div>`).join("")||`<div class="empty">Belum ada rekod.</div>`}</div></div>`;$$("[data-go]").forEach(b=>b.onclick=()=>{page=b.dataset.go;render()})}
-function imamsPage(){$("#content").innerHTML=`<div class="page-head"><div><h3>Pengurusan Imam</h3><div class="muted small">Senarai imam</div></div>${isAdmin()?'<button class="btn primary" id="add">+ Tambah Imam</button>':""}</div><div class="panel"><div class="table-wrap"><table class="table"><tr><th>Nama</th><th>Telefon</th><th>Status</th><th>Tindakan</th></tr>${imams.map(x=>`<tr><td><b>${esc(x.full_name)}</b><br><span class="muted">${esc(x.nickname||"")}</span></td><td>${esc(x.phone||"-")}</td><td><span class="badge">${esc(x.status)}</span></td><td>${isAdmin()?`<button class="mini edit" data-id="${x.id}">Edit</button> <button class="mini del delete" data-id="${x.id}">Padam</button>`:"-"}</td></tr>`).join("")||`<tr><td colspan="4"><div class="empty">Belum ada imam.</div></td></tr>`}</table></div></div>`;if($("#add"))$("#add").onclick=()=>imamForm();$$(".edit").forEach(b=>b.onclick=()=>imamForm(imams.find(x=>x.id===b.dataset.id)));$$(".delete").forEach(b=>b.onclick=async()=>{if(!confirm("Padam imam ini?"))return;let r=await supabase.from("imams").delete().eq("id",b.dataset.id);if(r.error)toast(r.error.message);else{await load();render();toast("Imam dipadam.")}})}
-function imamForm(x=null){openModal(x?"Edit Imam":"Tambah Imam",`<form id="f" class="form-grid"><label>Nama penuh<input name="full_name" required value="${esc(x?.full_name||"")}"></label><label>Nama panggilan<input name="nickname" value="${esc(x?.nickname||"")}"></label><label>Telefon<input name="phone" value="${esc(x?.phone||"")}"></label><label>Status<select name="status"><option ${x?.status==="AKTIF"?"selected":""}>AKTIF</option><option ${x?.status==="TIDAK AKTIF"?"selected":""}>TIDAK AKTIF</option></select></label><label>Tarikh mula<input name="start_date" type="date" value="${x?.start_date||""}"></label><label>URL foto<input name="photo_url" value="${esc(x?.photo_url||"")}"></label><label class="full">Alamat<textarea name="address">${esc(x?.address||"")}</textarea></label><label class="full">Catatan<textarea name="notes">${esc(x?.notes||"")}</textarea></label><div class="full form-actions"><button type="button" class="btn secondary" data-close>Batal</button><button class="btn primary">Simpan</button></div></form>`);$("#f").onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));let r=x?await supabase.from("imams").update(o).eq("id",x.id):await supabase.from("imams").insert(o);if(r.error)toast(r.error.message);else{closeModal();await load();render();toast("Imam disimpan.")}}}
-function schedPage(){$("#content").innerHTML=`<div class="page-head"><div><h3>Jadual Bertugas</h3><div class="muted small">Subuh · Zohor · Asar · Maghrib · Isyak · Jumaat</div></div>${isAdmin()?'<button class="btn primary" id="add">+ Tambah Jadual</button>':""}</div><div class="panel"><div class="table-wrap"><table class="table"><tr><th>Tarikh</th><th>Hari</th><th>Solat</th><th>Imam</th><th>Status</th><th>Tindakan</th></tr>${schedules.map(x=>`<tr><td>${dateFmt(x.duty_date)}</td><td>${new Intl.DateTimeFormat("ms-MY",{weekday:"short"}).format(new Date(x.duty_date+"T00:00:00"))}</td><td>${esc(prayerName(x.prayer_id))}</td><td>${esc(imamName(x.imam_id))}</td><td><span class="badge">${esc(x.status)}</span></td><td>${isAdmin()?`<button class="mini edit" data-id="${x.id}">Edit</button> <button class="mini del delete" data-id="${x.id}">Padam</button>`:"-"}</td></tr>`).join("")||`<tr><td colspan="6"><div class="empty">Belum ada jadual.</div></td></tr>`}</table></div></div>`;if($("#add"))$("#add").onclick=()=>scheduleForm();$$(".edit").forEach(b=>b.onclick=()=>scheduleForm(schedules.find(x=>x.id===b.dataset.id)));$$(".delete").forEach(b=>b.onclick=async()=>{if(!confirm("Padam jadual ini?"))return;let r=await supabase.from("duty_schedules").delete().eq("id",b.dataset.id);if(r.error)toast(r.error.message);else{await load();render();toast("Jadual dipadam.")}})}
-function scheduleForm(x=null){openModal(x?"Edit Jadual":"Tambah Jadual",`<form id="f" class="form-grid"><label>Tarikh<input name="duty_date" type="date" required value="${x?.duty_date||today()}"></label><label>Solat<select name="prayer_id" required>${opts(prayers,x?.prayer_id,"name")}</select></label><label>Imam<select name="imam_id" required>${opts(imams.filter(i=>i.status==="AKTIF"),x?.imam_id)}</select></label><label>Status<select name="status"><option>DIJADUALKAN</option><option>SELESAI</option><option>DIGANTI</option><option>BATAL</option></select></label><label class="full">Catatan<textarea name="notes">${esc(x?.notes||"")}</textarea></label><div class="full form-actions"><button type="button" class="btn secondary" data-close>Batal</button><button class="btn primary">Simpan</button></div></form>`);if(x)$('[name="status"]',$("#f")).value=x.status;$("#f").onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));o.created_by=session.user.id;let r=x?await supabase.from("duty_schedules").update(o).eq("id",x.id):await supabase.from("duty_schedules").insert(o);if(r.error)toast(r.error.message);else{closeModal();await load();render();toast("Jadual disimpan.")}}}
-function calPage(){let y=month.getFullYear(),m=month.getMonth(),first=new Date(y,m,1),days=new Date(y,m+1,0).getDate(),start=(first.getDay()+6)%7,c="";for(let i=0;i<start;i++)c+=`<div class="cal-day"></div>`;for(let d=1;d<=days;d++){let dt=`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`,ss=schedules.filter(x=>x.duty_date===dt);c+=`<div class="cal-day ${dt===today()?"today":""}"><div class="cal-date">${d}</div>${ss.slice(0,5).map(x=>`<div class="cal-event">${esc(prayerName(x.prayer_id))} · ${esc(imamName(x.imam_id))}</div>`).join("")}</div>`}$("#content").innerHTML=`<div class="page-head"><div><h3>Kalendar ${new Intl.DateTimeFormat("ms-MY",{month:"long",year:"numeric"}).format(month)}</h3></div><div class="actions"><button class="btn secondary" id="p">‹</button><button class="btn secondary" id="n">›</button></div></div><div class="panel"><div class="calendar"><div class="cal-head">Isnin</div><div class="cal-head">Selasa</div><div class="cal-head">Rabu</div><div class="cal-head">Khamis</div><div class="cal-head">Jumaat</div><div class="cal-head">Sabtu</div><div class="cal-head">Ahad</div>${c}</div></div>`;$("#p").onclick=()=>{month=new Date(y,m-1,1);render()};$("#n").onclick=()=>{month=new Date(y,m+1,1);render()}}
-function repPage(){$("#content").innerHTML=`<div class="page-head"><div><h3>Penggantian Imam</h3><div class="muted small">Imam asal, pengganti dan sebab</div></div>${isAdmin()?'<button class="btn primary" id="add">+ Rekod Penggantian</button>':""}</div><div class="panel"><div class="table-wrap"><table class="table"><tr><th>Tarikh</th><th>Asal</th><th>Pengganti</th><th>Sebab</th><th>Tindakan</th></tr>${replacements.map(x=>`<tr><td>${dateFmt(x.replacement_date)}</td><td>${esc(imamName(x.original_imam_id))}</td><td>${esc(imamName(x.replacement_imam_id))}</td><td>${esc(x.reason||"-")}</td><td>${isAdmin()?`<button class="mini del delete" data-id="${x.id}">Padam</button>`:"-"}</td></tr>`).join("")||`<tr><td colspan="5"><div class="empty">Belum ada rekod.</div></td></tr>`}</table></div></div>`;if($("#add"))$("#add").onclick=()=>repForm();$$(".delete").forEach(b=>b.onclick=async()=>{if(!confirm("Padam rekod ini?"))return;let r=await supabase.from("replacements").delete().eq("id",b.dataset.id);if(r.error)toast(r.error.message);else{await load();render();toast("Rekod dipadam.")}})}
-function repForm(){openModal("Rekod Penggantian",`<form id="f" class="form-grid"><label>Tarikh<input name="replacement_date" type="date" required value="${today()}"></label><label>Imam Asal<select name="original_imam_id">${opts(imams)}</select></label><label>Imam Pengganti<select name="replacement_imam_id">${opts(imams)}</select></label><label class="full">Sebab<textarea name="reason" required></textarea></label><div class="full form-actions"><button type="button" class="btn secondary" data-close>Batal</button><button class="btn primary">Simpan</button></div></form>`);$("#f").onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));o.created_by=session.user.id;let r=await supabase.from("replacements").insert(o);if(r.error)toast(r.error.message);else{closeModal();await load();render();toast("Penggantian disimpan.")}}}
-function unavailPage(){$("#content").innerHTML=`<div class="page-head"><div><h3>Ketidakhadiran Imam</h3><div class="muted small">Sakit, urusan keluarga, kerja, cuti, musafir dan lain-lain</div></div><button class="btn primary" id="add">+ Rekod</button></div><div class="panel"><div class="table-wrap"><table class="table"><tr><th>Imam</th><th>Tarikh</th><th>Sebab</th><th>Status</th></tr>${unavailability.map(x=>`<tr><td>${esc(imamName(x.imam_id))}</td><td>${dateFmt(x.start_date)} – ${dateFmt(x.end_date)}</td><td>${esc(x.reason_type)} ${esc(x.reason||"")}</td><td><span class="badge">${esc(x.status)}</span></td></tr>`).join("")||`<tr><td colspan="4"><div class="empty">Belum ada rekod.</div></td></tr>`}</table></div></div>`;$("#add").onclick=()=>unavailForm()}
-function unavailForm(){openModal("Rekod Ketidakhadiran",`<form id="f" class="form-grid"><label>Imam<select name="imam_id">${opts(imams)}</select></label><label>Sebab<select name="reason_type"><option>SAKIT</option><option>URUSAN KELUARGA</option><option>KERJA</option><option>CUTI</option><option>MUSAFIR</option><option>KECEMASAN</option><option>LAIN-LAIN</option></select></label><label>Tarikh mula<input name="start_date" type="date" required value="${today()}"></label><label>Tarikh akhir<input name="end_date" type="date" required value="${today()}"></label><label class="full">Catatan<textarea name="reason"></textarea></label><div class="full form-actions"><button type="button" class="btn secondary" data-close>Batal</button><button class="btn primary">Simpan</button></div></form>`);$("#f").onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));o.created_by=session.user.id;let r=await supabase.from("unavailability").insert(o);if(r.error)toast(r.error.message);else{closeModal();await load();render();toast("Ketidakhadiran disimpan.")}}}
-function attPage(){$("#content").innerHTML=`<div class="page-head"><div><h3>Kehadiran</h3><div class="muted small">Status kehadiran bagi jadual</div></div></div><div class="panel"><div class="table-wrap"><table class="table"><tr><th>Tarikh</th><th>Solat</th><th>Imam</th><th>Status</th><th>Tindakan</th></tr>${schedules.slice(0,50).map(s=>{let a=attendance.find(x=>x.duty_schedule_id===s.id);return `<tr><td>${dateFmt(s.duty_date)}</td><td>${esc(prayerName(s.prayer_id))}</td><td>${esc(imamName(s.imam_id))}</td><td><span class="badge">${esc(a?.attendance_status||"BELUM DIREKOD")}</span></td><td>${isAdmin()?`<button class="mini mark" data-id="${s.id}">Rekod</button>`:"-"}</td></tr>`}).join("")||`<tr><td colspan="5"><div class="empty">Belum ada jadual.</div></td></tr>`}</table></div></div>`;$$(".mark").forEach(b=>b.onclick=()=>attForm(schedules.find(x=>x.id===b.dataset.id),attendance.find(x=>x.duty_schedule_id===b.dataset.id)))}
-function attForm(s,a){openModal("Kehadiran",`<form id="f" class="stack"><div class="muted small">${dateFmt(s.duty_date)} · ${esc(prayerName(s.prayer_id))} · ${esc(imamName(s.imam_id))}</div><label>Status<select name="attendance_status"><option>HADIR</option><option>TIDAK HADIR</option><option>DIGANTI</option><option>LEWAT</option></select></label><label>Catatan<textarea name="notes">${esc(a?.notes||"")}</textarea></label><div class="form-actions"><button type="button" class="btn secondary" data-close>Batal</button><button class="btn primary">Simpan</button></div></form>`);if(a)$('[name="attendance_status"]',$("#f")).value=a.attendance_status;$("#f").onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));Object.assign(o,{duty_schedule_id:s.id,imam_id:s.imam_id,recorded_by:session.user.id});let r=a?await supabase.from("attendance").update(o).eq("id",a.id):await supabase.from("attendance").insert(o);if(r.error)toast(r.error.message);else{closeModal();await load();render();toast("Kehadiran disimpan.")}}}
-function reportPage(){let m=today().slice(0,7),ss=schedules.filter(x=>x.duty_date.startsWith(m));$("#content").innerHTML=`<div class="page-head"><div><h3>Laporan Bulanan</h3><div class="muted small">Bulan semasa</div></div><button class="btn secondary" onclick="window.print()">Cetak</button></div><div class="stats"><div class="stat"><div class="label">JADUAL</div><div class="num">${ss.length}</div></div><div class="stat"><div class="label">PENGGANTIAN</div><div class="num">${replacements.filter(x=>x.replacement_date.startsWith(m)).length}</div></div><div class="stat"><div class="label">KETIDAKHADIRAN</div><div class="num">${unavailability.filter(x=>x.start_date.startsWith(m)||x.end_date.startsWith(m)).length}</div></div><div class="stat"><div class="label">IMAM AKTIF</div><div class="num">${imams.filter(x=>x.status==="AKTIF").length}</div></div></div>`}
-supabase.auth.onAuthStateChange((_e,s)=>{session=s});boot();
+<!-- LOGIN -->
+<div id="login" class="login">
+  <div class="login-box">
+    <div class="logo">🕌</div>
+    <h1>E-IMAM MKSM</h1>
+    <p>Masjid Kampung Sungai Merab Luar</p>
 
+    <form id="loginForm">
+      <input id="email" type="email" placeholder="Email pengguna" required>
+      <input id="password" type="password" placeholder="Kata laluan" required>
+      <button class="btn" style="width:100%">Masuk Sistem</button>
+    </form>
+
+    <p id="loginMsg"></p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+<header class="header">
+  <div>
+    <div class="brand">E-IMAM MKSM</div>
+    <small>Masjid Kampung Sungai Merab Luar</small>
+  </div>
+  <button class="btn secondary" onclick="logout()">Log Keluar</button>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<button class="nav active" onclick="showPage('dashboard',this)">🏠 Dashboard</button>
+<button class="nav" onclick="showPage('imams',this)">👳 Imam</button>
+<button class="nav" onclick="showPage('jadual',this)">📅 Jadual Bertugas</button>
+<button class="nav" onclick="showPage('kehadiran',this)">✅ Kehadiran</button>
+<button class="nav" onclick="showPage('tidak',this)">⚠️ Tidak Dapat Bertugas</button>
+<button class="nav" onclick="showPage('penggantian',this)">🔄 Penggantian</button>
+<button class="nav" onclick="showPage('laporan',this)">📊 Laporan</button>
+
+</aside>
+
+<main class="content">
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
+<h1>Dashboard</h1>
+<p>Ringkasan sistem bertugas imam.</p>
+
+<div class="cards">
+  <div class="card">
+    <h3>Jumlah Imam</h3>
+    <div class="number" id="jumlahImam">0</div>
+  </div>
+
+  <div class="card">
+    <h3>Jadual Bulan Ini</h3>
+    <div class="number" id="jumlahJadual">0</div>
+  </div>
+
+  <div class="card">
+    <h3>Hadir</h3>
+    <div class="number" id="jumlahHadir">0</div>
+  </div>
+
+  <div class="card">
+    <h3>Tidak Hadir</h3>
+    <div class="number" id="jumlahTidakHadir">0</div>
+  </div>
+</div>
+
+<div class="panel">
+<h2>Selamat Datang</h2>
+<p>
+Sistem E-IMAM digunakan untuk mengurus imam,
+jadual bertugas, kehadiran dan rekod penggantian
+Masjid Kampung Sungai Merab Luar.
+</p>
+</div>
+</section>
+
+<!-- IMAM -->
+<section id="imams" class="page">
+<h1>Senarai Imam</h1>
+
+<div class="panel">
+<button class="btn" onclick="loadImams()">Muat Semula</button>
+<br><br>
+
+<table>
+<thead>
+<tr>
+<th>Nama</th>
+<th>Nama Panggilan</th>
+<th>Telefon</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="imamTable"></tbody>
+</table>
+</div>
+</section>
+
+<!-- JADUAL -->
+<section id="jadual" class="page">
+<h1>Jadual Bertugas</h1>
+
+<div class="panel">
+<div class="form-grid">
+<div>
+<label>Tarikh</label>
+<input type="date" id="tarikh">
+</div>
+
+<div>
+<label>Waktu Solat</label>
+<select id="waktu">
+<option>SUBUH</option>
+<option>ZOHOR</option>
+<option>ASAR</option>
+<option>MAGHRIB</option>
+<option>ISYAK</option>
+<option>JUMAAT</option>
+</select>
+</div>
+
+<div>
+<label>Imam</label>
+<select id="imamSelect"></select>
+</div>
+</div>
+
+<button class="btn" onclick="tambahJadual()">Simpan Jadual</button>
+</div>
+
+<div class="panel">
+<table>
+<thead>
+<tr>
+<th>Tarikh</th>
+<th>Waktu</th>
+<th>Imam</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="jadualTable"></tbody>
+</table>
+</div>
+</section>
+
+<!-- KEHADIRAN -->
+<section id="kehadiran" class="page">
+<h1>Kehadiran</h1>
+
+<div class="panel">
+<p>Rekod kehadiran imam akan dipaparkan di sini.</p>
+
+<table>
+<thead>
+<tr>
+<th>Tarikh</th>
+<th>Waktu</th>
+<th>Imam</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="hadirTable"></tbody>
+</table>
+</div>
+</section>
+
+<!-- TIDAK -->
+<section id="tidak" class="page">
+<h1>Tidak Dapat Bertugas</h1>
+
+<div class="panel">
+<div class="form-grid">
+<div>
+<label>Tarikh</label>
+<input type="date" id="tidakTarikh">
+</div>
+
+<div>
+<label>Waktu</label>
+<select id="tidakWaktu">
+<option>SUBUH</option>
+<option>ZOHOR</option>
+<option>ASAR</option>
+<option>MAGHRIB</option>
+<option>ISYAK</option>
+<option>JUMAAT</option>
+</select>
+</div>
+</div>
+
+<label>Sebab</label>
+<textarea id="sebab" rows="3"
+placeholder="Contoh: Urusan keluarga / sakit / musafir"></textarea>
+
+<button class="btn" onclick="simpanTidakHadir()">Simpan Rekod</button>
+</div>
+</section>
+
+<!-- PENGGANTIAN -->
+<section id="penggantian" class="page">
+<h1>Penggantian Imam</h1>
+
+<div class="panel">
+<p>
+Modul penggantian imam disediakan untuk merekod imam
+yang menggantikan tugasan.
+</p>
+</div>
+</section>
+
+<!-- LAPORAN -->
+<section id="laporan" class="page">
+<h1>Laporan</h1>
+
+<div class="panel">
+<h2>Ringkasan Rekod</h2>
+
+<p>Jumlah Imam Aktif:
+<strong id="laporanImam">0</strong></p>
+
+<p>Jumlah Jadual:
+<strong id="laporanJadual">0</strong></p>
+
+<button class="btn" onclick="window.print()">Cetak Laporan</button>
+</div>
+</section>
+
+</main>
+</div>
+</div>
+
+<script>
+const sb = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+document.getElementById("loginForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+
+  const email=document.getElementById("email").value;
+  const password=document.getElementById("password").value;
+
+  const {error}=await sb.auth.signInWithPassword({
+    email,password
+  });
+
+  if(error){
+    document.getElementById("loginMsg").textContent =
+      "Login gagal: "+error.message;
+    return;
+  }
+
+  bukaSistem();
+});
+
+async function bukaSistem(){
+  document.getElementById("login").style.display="none";
+  document.getElementById("app").style.display="block";
+
+  await loadImams();
+  await loadJadual();
+  await loadDashboard();
+}
+
+async function logout(){
+  await sb.auth.signOut();
+  location.reload();
+}
+
+function showPage(id,btn){
+  document.querySelectorAll(".page")
+    .forEach(x=>x.classList.remove("active"));
+
+  document.getElementById(id)
+    .classList.add("active");
+
+  document.querySelectorAll(".nav")
+    .forEach(x=>x.classList.remove("active"));
+
+  btn.classList.add("active");
+
+  if(id==="dashboard") loadDashboard();
+  if(id==="imams") loadImams();
+  if(id==="jadual") loadJadual();
+}
+
+async function loadImams(){
+
+  const {data,error}=await sb
+    .from("imams")
+    .select("*")
+    .order("full_name");
+
+  if(error){
+    console.error(error);
+    return;
+  }
+
+  const table=document.getElementById("imamTable");
+  const select=document.getElementById("imamSelect");
+
+  table.innerHTML="";
+  select.innerHTML="<option value=''>-- Pilih Imam --</option>";
+
+  data.forEach(i=>{
+    table.innerHTML+=`
+      <tr>
+        <td>${i.full_name||""}</td>
+        <td>${i.nickname||"-"}</td>
+        <td>${i.phone||"-"}</td>
+        <td><span class="badge">${i.status||""}</span></td>
+      </tr>
+    `;
+
+    if(i.status==="AKTIF"){
+      select.innerHTML+=`
+        <option value="${i.id}">
+          ${i.full_name}
+        </option>
+      `;
+    }
+  });
+
+  document.getElementById("jumlahImam").textContent=data.length;
+  document.getElementById("laporanImam").textContent=data.length;
+}
+
+async function loadJadual(){
+
+  const {data,error}=await sb
+    .from("jadual_bertugas")
+    .select("*, imams(full_name)")
+    .order("tarikh",{ascending:false})
+    .limit(100);
+
+  if(error){
+    console.error(error);
+    return;
+  }
+
+  const table=document.getElementById("jadualTable");
+  table.innerHTML="";
+
+  data.forEach(j=>{
+    table.innerHTML+=`
+      <tr>
+        <td>${j.tarikh}</td>
+        <td>${j.waktu_solat}</td>
+        <td>${j.imams?.full_name||"-"}</td>
+        <td><span class="badge">${j.status_tugas}</span></td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("jumlahJadual").textContent=data.length;
+  document.getElementById("laporanJadual").textContent=data.length;
+}
+
+async function tambahJadual(){
+
+  const tarikh=document.getElementById("tarikh").value;
+  const waktu=document.getElementById("waktu").value;
+  const imam_id=document.getElementById("imamSelect").value;
+
+  if(!tarikh || !imam_id){
+    alert("Sila pilih tarikh dan imam.");
+    return;
+  }
+
+  const {error}=await sb
+    .from("jadual_bertugas")
+    .insert({
+      tarikh,
+      waktu_solat:waktu,
+      imam_id,
+      status_tugas:"DIJADUALKAN"
+    });
+
+  if(error){
+    alert("Gagal simpan: "+error.message);
+    return;
+  }
+
+  alert("Jadual berjaya disimpan.");
+  loadJadual();
+  loadDashboard();
+}
+
+async function simpanTidakHadir(){
+
+  const tarikh=document.getElementById("tidakTarikh").value;
+  const waktu=document.getElementById("tidakWaktu").value;
+  const sebab=document.getElementById("sebab").value;
+
+  if(!tarikh || !sebab){
+    alert("Sila masukkan tarikh dan sebab.");
+    return;
+  }
+
+  alert(
+    "Maklumat diterima.\n\n"+
+    "Tarikh: "+tarikh+
+    "\nWaktu: "+waktu+
+    "\nSebab: "+sebab
+  );
+}
+
+async function loadDashboard(){
+
+  const {data,error}=await sb
+    .from("jadual_bertugas")
+    .select("status_tugas");
+
+  if(error)return;
+
+  let hadir=0;
+  let tidak=0;
+
+  data.forEach(x=>{
+    if(x.status_tugas==="HADIR") hadir++;
+    if(x.status_tugas==="TIDAK HADIR") tidak++;
+  });
+
+  document.getElementById("jumlahHadir").textContent=hadir;
+  document.getElementById("jumlahTidakHadir").textContent=tidak;
+}
+
+(async()=>{
+  const {data}=await sb.auth.getSession();
+
+  if(data.session){
+    bukaSistem();
+  }
+})();
 </script>
-</body></html>
+
+</body>
+</html>
