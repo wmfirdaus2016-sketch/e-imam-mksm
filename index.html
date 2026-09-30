@@ -580,8 +580,39 @@ async function loadJadual(){
   document.getElementById("jumlahJadual").textContent=data.length;
   document.getElementById("laporanJadual").textContent=data.length;
 }
+  async function tambahJadual(){
+
+  
 
   const tarikh=document.getElementById("tarikh").value;
+  const waktu=document.getElementById("waktu").value;
+  const imam_id=document.getElementById("imamSelect").value;
+
+  if(!tarikh || !imam_id){
+    alert("Sila pilih tarikh dan imam.");
+    return;
+  }
+
+  const {error}=await sb
+    .from("jadual_bertugas")
+    .upsert({
+      tarikh,
+      waktu_solat:waktu,
+      imam_id,
+      status_tugas:"DIJADUALKAN"
+    },{
+      onConflict:"tarikh,waktu_solat"
+    });
+
+  if(error){
+    alert("Gagal simpan: "+error.message);
+    return;
+  }
+
+  alert("Jadual berjaya disimpan.");
+  loadJadual();
+  loadDashboard();
+}
   const waktu=document.getElementById("waktu").value;
   const imam_id=document.getElementById("imamSelect").value;
 
