@@ -510,7 +510,7 @@ async function loadJadual(){
 
   const {data,error}=await sb
     .from("jadual_bertugas")
-    .select("*, imams(full_name)")
+    .select("*")
     .order("tarikh",{ascending:false})
     .limit(100);
 
