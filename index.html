@@ -537,7 +537,49 @@ async function loadJadual(){
   document.getElementById("laporanJadual").textContent=data.length;
 }
 
-async function tambahJadual(){
+async function loadJadual(){
+  const {data,error}=await sb
+    .from("jadual_bertugas")
+    .select("*")
+    .order("tarikh",{ascending:false})
+    .limit(100);
+
+  if(error){
+    console.error(error);
+    return;
+  }
+
+  const {data:imamData, error:imamError}=await sb
+    .from("imams")
+    .select("id,full_name");
+
+  if(imamError){
+    console.error(imamError);
+  }
+
+  const imamMap={};
+
+  (imamData || []).forEach(i=>{
+    imamMap[i.id]=i.full_name;
+  });
+
+  const table=document.getElementById("jadualTable");
+  table.innerHTML="";
+
+  data.forEach(j=>{
+    table.innerHTML+=`
+      <tr>
+        <td>${j.tarikh}</td>
+        <td>${j.waktu_solat}</td>
+        <td>${imamMap[j.imam_id] || "-"}</td>
+        <td><span class="badge">${j.status_tugas}</span></td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("jumlahJadual").textContent=data.length;
+  document.getElementById("laporanJadual").textContent=data.length;
+}
 
   const tarikh=document.getElementById("tarikh").value;
   const waktu=document.getElementById("waktu").value;
