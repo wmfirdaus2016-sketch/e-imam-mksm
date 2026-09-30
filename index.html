@@ -550,12 +550,14 @@ async function tambahJadual(){
 
   const {error}=await sb
     .from("jadual_bertugas")
-    .insert({
+    .upsert({
       tarikh,
       waktu_solat:waktu,
       imam_id,
       status_tugas:"DIJADUALKAN"
-    });
+  }, {
+  onConflict: "tarikh,waktu_solat"
+});
 
   if(error){
     alert("Gagal simpan: "+error.message);
