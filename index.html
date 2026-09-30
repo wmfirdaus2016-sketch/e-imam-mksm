@@ -527,7 +527,7 @@ async function loadJadual(){
       <tr>
         <td>${j.tarikh}</td>
         <td>${j.waktu_solat}</td>
-        <td>${j.imams?.full_name||"-"}</td>
+       <td>${document.querySelector(`#imamSelect option[value="${j.imam_id}"]`)?.textContent || "-"}</td>
         <td><span class="badge">${j.status_tugas}</span></td>
       </tr>
     `;
